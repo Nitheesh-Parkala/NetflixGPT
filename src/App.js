@@ -1,10 +1,8 @@
-import './App.css';
-
+import { Route, RouterProvider } from "react-router-dom";
+import Body from "./components/Body";
 function App() {
   return (
-    <div className="App">
-      <h1 className='m-4 text-center font-bold'>Netflix GPT</h1>
-    </div>
+  <Body/>
   );
 }
 
