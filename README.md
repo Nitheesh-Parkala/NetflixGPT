@@ -2,7 +2,12 @@
 
 - Create React App(npx create react app)
 - Configured TailWindcss (https://tailwindcss.com/docs/guides/create-react-app)
-
+- Header
+- Routing
+- Login Form
+- Sign Up Form
+- Form Validation
+- UseRef hooks
 # Features
 - Login/SingUp Page
     -  Sign In/signUp Form
