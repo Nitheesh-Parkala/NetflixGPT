@@ -1,6 +1,6 @@
 # Netflix GPT
 
-- Create React App(npx create react app)
+- Create React App(`npx create react app`)
 - Configured TailWindcss (https://tailwindcss.com/docs/guides/create-react-app)
 - Header
 - Routing
@@ -8,6 +8,11 @@
 - Sign Up Form
 - Form Validation
 - UseRef hooks
+- Firebase SetUp
+- Adding authentication using firebase
+- Before Deployment we should install(`npm install -g firebase-tools`)
+- Create SignUp User Account
+
 # Features
 - Login/SingUp Page
     -  Sign In/signUp Form
