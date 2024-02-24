@@ -12,7 +12,9 @@
 - Adding authentication using firebase
 - Before Deployment we should install(`npm install -g firebase-tools`)
 - Create SignUp User Account
-
+- Setup Redux Store(`npm i D @reduxjs/toolkit`) & (`npm i react-redux`)
+- Created a redux store with userSlice
+- implemented SignOut 
 # Features
 - Login/SingUp Page
     -  Sign In/signUp Form

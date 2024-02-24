@@ -1,13 +1,22 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import {checkValidateData} from '../utils/validate';
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
 import{auth} from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+
+
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const[errorMessage,setErrorMessage]=useState(null)
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const name = useRef(null)
     const email = useRef(null);
     const password = useRef(null)
+
 const handleButtonClick =()=>{
 //   validate the form data
 checkValidateData(email.current.value)
@@ -19,10 +28,19 @@ checkValidateData(password.current.value)
 
  if(!isSignInForm){
     // SignUp Logic
-createUserWithEmailAndPassword(auth, email.current.value,password.current.value )
+ createUserWithEmailAndPassword(auth, email.current.value,password.current.value )
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
+    updateProfile(user, {
+   displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/137431549?v=4"
+   }).then(() => {
+    const {uid,email,displayName,photoURL } = auth.currentUser;
+    dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+   navigate("/browse")
+}).catch((error) => {
+  setErrorMessage(error.message)
+});
     console.log(user)
   })
   .catch((error) => {
@@ -33,11 +51,12 @@ createUserWithEmailAndPassword(auth, email.current.value,password.current.value 
 
  }else{
     // SignIn Logic
-    signInWithEmailAndPassword(auth, email.current.value,password.current.value )
+    signInWithEmailAndPassword(auth, email.current.value,password.current.value, )
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     console.log(user)
+    navigate("/browse")
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -67,6 +86,7 @@ createUserWithEmailAndPassword(auth, email.current.value,password.current.value 
                     </h1>
                     {!isSignInForm && (
                         <input
+                        ref={name}
                             type="Name"
                             placeholder="Full Name"
                             className="p-4 my-2 bg-gray-700 w-full"
