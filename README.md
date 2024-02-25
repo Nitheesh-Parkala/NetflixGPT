@@ -15,6 +15,12 @@
 - Setup Redux Store(`npm i D @reduxjs/toolkit`) & (`npm i react-redux`)
 - Created a redux store with userSlice
 - implemented SignOut 
+- Bug Fix: Sign up user displayName and profile picture update
+- Bug Fix: if the user is not logged in  Redirect/browse to Login Page and Vice-versa.
+- UnSubscribed to the onAuthStateChanged callback
+- Add hardcoded value to the constant file
+
+
 # Features
 - Login/SingUp Page
     -  Sign In/signUp Form
