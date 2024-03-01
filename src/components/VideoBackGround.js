@@ -1,28 +1,13 @@
-import { useEffect} from "react";
-import { API_OPTIONS } from "../utils/constants";
-import { useDispatch, useSelector } from "react-redux";
-import {  addTrailerVideo} from "../utils/moviesSlice"
+import { useSelector } from "react-redux";
+import useMovieTrailer from "../hooks/useMovieTrailer";
+
 const VideoBackGround =({movieId})=>{
     const trailerVideo = useSelector(store=>store.movies.trailerVideo);
-   const dispatch = useDispatch();
-    // fetch trailer video
-    const getMovieVideos = async()=>{
-        const data = await fetch('https://api.themoviedb.org/3/movie/1096197/videos?language=en-US', API_OPTIONS)
-        const json = await data.json();
-        console.log(json);
-          const filterData = json.results.filter((video)=>video.type ==="Trailer");
-          const trailer = filterData.length ? filterData[0] : json.results[0];
-     console.log(trailer)
-     dispatch(addTrailerVideo(trailer))
-
-    }
-    useEffect(()=>{
-       getMovieVideos();
-    },[])
+     useMovieTrailer(movieId);
     return(
         <div>
-      <iframe 
-      src={"https://www.youtube.com/embed/"+ trailerVideo?.key}
+      <iframe  className="md:w-screen  md:h-screen-hidden aspect-video"
+      src={"https://www.youtube.com/embed/"+ trailerVideo?.key+ "?rel=0&amp;autoplay=1&mute=1"}
       title="YouTube video player" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" >
      </iframe>

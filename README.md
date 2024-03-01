@@ -22,7 +22,12 @@
 - Register Tmdb API & Create an app & get acess token
 - Get data from TMDB now Playing Movie list
 - Adding Movie data to the store using movie Slice
-- 
+- Planning for mainContainer & Secondary container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video data
+- Embedded the Youtube video and make it autoplay and mute
+- Tailwind classes to make maniContainer look awesome
+
 
 # Features
 - Login/SingUp Page

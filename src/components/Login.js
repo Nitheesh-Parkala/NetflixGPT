@@ -38,7 +38,7 @@ checkValidateData(password.current.value)
 }).catch((error) => {
   setErrorMessage(error.message)
 });
-    console.log(user)
+    // console.log(user)
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -52,7 +52,7 @@ checkValidateData(password.current.value)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user)
+    // console.log(user)
   
   })
   .catch((error) => {
