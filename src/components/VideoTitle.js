@@ -3,7 +3,7 @@ import { faPlay, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 const VideoTitle =({title,overview})=>{
     return(
        <>
-  <div className="pt-[20%] w-screen aspect-video text-white px-24 absolute bg-gradient-to-b from-black ">
+  <div className="pt-[15%] w-screen aspect-video text-white px-24 absolute bg-gradient-to-b from-black ">
     <h1 className="text-6xl md:text-6xl font-bold">{title}</h1>
     <p className="py-6 md:py-6 text-base w-10 md:text-lg w-full md:w-1/4">{overview}</p>
 

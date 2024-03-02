@@ -27,7 +27,13 @@
 - Update Store with Trailer Video data
 - Embedded the Youtube video and make it autoplay and mute
 - Tailwind classes to make maniContainer look awesome
-
+- Build the Secondary Componet 
+- Build the Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Made the Browse  page amazing with Tailwind Css
+- usePopularmovies Custom hook
+-
 
 # Features
 - Login/SingUp Page
