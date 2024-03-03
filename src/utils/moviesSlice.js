@@ -21,7 +21,7 @@ const moviesSlice = createSlice({
         },
         addTrendingMovies:(state,action)=>{
             state.trendingMovies=action.payload;
-        }
+        },   
     }
 })
 export const{addNowPlayingMovies,  addTrailerVideo, addPopularMovies,  addUpcomingMovies, addTrendingMovies} = moviesSlice.actions;
