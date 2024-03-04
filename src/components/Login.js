@@ -6,7 +6,7 @@ import{auth} from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { USER_AVATAR } from "../utils/constants";
-
+import { BACKGROUND_URL } from "../utils/constants";
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const[errorMessage,setErrorMessage]=useState(null)
@@ -20,7 +20,7 @@ const handleButtonClick =()=>{
 checkValidateData(email.current.value)
 checkValidateData(password.current.value)
  const message = checkValidateData(email.current.value,password.current.value);
-//  console.log(message)
+
  setErrorMessage(message);
  if(message) return;
 
@@ -38,7 +38,7 @@ checkValidateData(password.current.value)
 }).catch((error) => {
   setErrorMessage(error.message)
 });
-    // console.log(user)
+   
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -52,7 +52,7 @@ checkValidateData(password.current.value)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    // console.log(user)
+   
   
   })
   .catch((error) => {
@@ -72,7 +72,7 @@ checkValidateData(password.current.value)
             <div className="relative">
                 <img
                     className="hidden md:block w-full"
-                    src="https://assets.nflxext.com/ffe/siteui/vlv3/c0b69670-89a3-48ca-877f-45ba7a60c16f/2642e08e-4202-490e-8e93-aff04881ee8a/IN-en-20240212-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+                    src={BACKGROUND_URL}
                     alt="Background"
                 />
             </div>
