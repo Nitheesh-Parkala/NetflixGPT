@@ -36,7 +36,7 @@
 - GPT Search features
 - GPT Search Bar
 - Multi-Language Feature in our App
-
+- Integrate GPT APi
 
 # Features
 - Login/SingUp Page
