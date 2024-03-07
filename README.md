@@ -37,6 +37,7 @@
 - GPT Search Bar
 - Multi-Language Feature in our App
 - Integrate GPT APi
+- memoization (Memoization is an optimization technique for accelerating computer programs by caching the results of heavy function calls and returning them when similar inputs are encountered repeatedly) means It will stop unnecessary Api calls.
 
 # Features
 - Login/SingUp Page

@@ -1,10 +1,12 @@
 
-import { useSelector } from "react-redux";
-import { API_OPTIONS, BACKGROUND_URL } from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { API_OPTIONS} from "../utils/constants";
 import lang from "../utils/languageConstant";
 import { useRef } from "react";
 import openai from "../utils/openai"
+import { addGptMovieResults } from "../utils/gptSlice";
 const GptSearchBar =()=>{
+    const dispatch = useDispatch();
     const langKey = useSelector((store)=>store.config.lang)
     const searchText = useRef(null)
 
@@ -32,14 +34,10 @@ const GptSearchBar =()=>{
     // [this will return the promise]
     const tmdbResults = await Promise.all(promiseArray); 
     // This promise.all will get when the all promise is resolved then only we will get the data from the tmdbResults
+    dispatch(addGptMovieResults({ movieNames: gptMovies, movieResults:tmdbResults}))
 }
     return ( 
-        <><div className="absolute -z-10 ">
-            <img
-                className="hidden md:block w-full "
-                src={BACKGROUND_URL}
-                alt="Background" />
-        </div><div className=" pt-40 flex justify-center">
+        <><div className=" pt-40 flex justify-center">
                 <form onSubmit={(e) => e.preventDefault()} className="w-1/2 bg-black  grid grid-cols-12">
                     <input ref={searchText} className="m-4 p-3 col-span-9" type="text" placeholder={lang[langKey].gptSearchPlaceholder} />
                     <button className="col-span-3 px-4 bg-red-700 rounded-lg py-2 m-3 text-white" onClick={handleGptSearchClick}>{lang[langKey].search}</button>
