@@ -5,10 +5,10 @@ const GptSearchPage =()=>{
     return(
         <><div className="fixed -z-10 ">
             <img
-                className="hidden md:block w-full "
+                className="h-screen object-cover md:w-screen "
                 src={BACKGROUND_URL}
                 alt="Background" />
-        </div><div>
+        </div><div className="">
                 <GptSearchBar />
                 <GptMovieSuggestions />
             </div></>

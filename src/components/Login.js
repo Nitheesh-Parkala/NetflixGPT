@@ -71,7 +71,7 @@ checkValidateData(password.current.value)
             <Header />
             <div className="relative">
                 <img
-                    className="hidden md:block w-full"
+                    className="h-screen object-cover md:w-screen "
                     src={BACKGROUND_URL}
                     alt="Background"
                 />
