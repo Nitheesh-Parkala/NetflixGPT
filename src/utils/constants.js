@@ -16,4 +16,4 @@ export const BACKGROUND_URL = "https://assets.nflxext.com/ffe/siteui/vlv3/c0b696
 
 export const SUPPORTED_LANGUAGES =[{identifier:"en", name:"English"},{identifier:"hindi", name:"Hindi"},{identifier:"kannada", name:"Kannada"},{identifier:"spanish", name:"Spanish"}]
 
-export const OPENAI_KEY = "sk-a58tzHkig6M7GFNzlLnQT3BLbkFJsfWKGiFB6x42YDlKIBsS"
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;

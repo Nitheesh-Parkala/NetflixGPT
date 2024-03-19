@@ -8,20 +8,24 @@ import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import GptSearchPage from "./GptSearchPage";
+import Shimmer from "./Shimmer";
 
 const Browse = ()=>{
     const showGptSearch = useSelector((store)=> store.gpt.showGptSearch)
+
 useNowPlayingMovies();
 usePopularMovies();
 useUpcomingMovies();
 useTrendingMovies();
 
     return (
-        <div ><Header/>
+        <div >
+            <Header/>
         {
             showGptSearch ?   <GptSearchPage/> :
         <>
           <MainContainer />
+         
           <SecondaryContainer />
         </>
         }

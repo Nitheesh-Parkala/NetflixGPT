@@ -45,7 +45,7 @@
 - memoization (Memoization is an optimization technique for accelerating computer programs by caching the results of heavy function calls and returning them when similar inputs are encountered repeatedly) means It will stop unnecessary Api calls.
 - adding .env file to git ignore
 - made our site responsive
-
+- Added shimmer effect
 # Features
 - Login/SingUp Page
     -  Sign In/signUp Form

@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
-
+import Shimmer from "./Shimmer";
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
-
+if(!movies) return <Shimmer/>
   return (
     movies && (
       <div className="bg-black">

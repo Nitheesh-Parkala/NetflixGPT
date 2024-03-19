@@ -8,8 +8,12 @@ import { LOGO } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
 import {changeLanguage} from "../utils/configSlice"
+
+
 const Header = () => {
+
    const showGptSearch = useSelector((store)=> store.gpt.showGptSearch)
+ 
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector(store=>store.user)
@@ -46,28 +50,28 @@ return()=> unsubscribe();
  const handleLanguageChange =(e)=>{
      dispatch(changeLanguage(e.target.value))
  }
-    return (
-        <div className="absolute w-screen px-3 md:px-8 py-2 bg-gradient-to-b from-black z-10 flex  md:justify-between  flex-col md:flex-row">
-            <img className="w-44  mx-auto  md:mx-0 md:w-44" src={LOGO} alt="logo" />
-           {user && <div className="flex items-center justify-between">
-        { showGptSearch && <select className="py-3 m-2 rounded-lg px-2 bg-gray-900 text-white text-lg font-bold"
-           onChange={handleLanguageChange}>
-            {SUPPORTED_LANGUAGES.map((lang)=>(
-               <option key={lang.identifier} value={lang.identifier} >
-                {lang.name} 
-                </option>
-               ))}
-           </select>}
-            <button onClick={handleGptSearchClick} 
-             className="bg-purple-700 font-bold  hover:bg-purple-500 m-1 text-white rounded-lg p-3 my-6">
-               {!showGptSearch ? "GPT Search" : "Home Page"} 
-              </button>
-                <img className="hidden md:block w-10 md:w-12 h-12 m-3  rounded-full " alt="usericon" src={user?.photoURL}/>
-                <button onClick={handleSignOut} className="p-3 my-6 bg-red-600 hover:bg-red-500 m-2 rounded-lg font-bold text-white">
-                    SignOut
-                </button>
-            </div>}
-        </div>
+    return  (
+      <div className="absolute w-screen px-3 md:px-8 py-2 bg-gradient-to-b from-black z-10 flex  md:justify-between  flex-col md:flex-row">
+        <img className="w-44  mx-auto  md:mx-0 md:w-44" src={LOGO} alt="logo" />
+        {user && <div className="flex items-center justify-between">
+          {showGptSearch && <select className="py-3 m-2 rounded-lg px-2 bg-gray-900 text-white text-lg font-bold"
+            onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option key={lang.identifier} value={lang.identifier}>
+                {lang.name}
+              </option>
+            ))}
+          </select>}
+          <button onClick={handleGptSearchClick}
+            className="bg-purple-700 font-bold  hover:bg-purple-500 m-1 text-white rounded-lg p-3 my-6">
+            {!showGptSearch ? "GPT Search" : "Home Page"}
+          </button>
+          <img className="hidden md:block w-10 md:w-12 h-12 m-3  rounded-full " alt="usericon" src={user?.photoURL} />
+          <button onClick={handleSignOut} className="p-3 my-6 bg-red-600 hover:bg-red-500 m-2 rounded-lg font-bold text-white">
+            SignOut
+          </button>
+        </div>}
+      </div>
     );
 };
 export default Header;
